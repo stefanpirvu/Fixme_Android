@@ -6,13 +6,16 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -20,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText editText_recogerCorreo;
     private EditText editText_recogerContrasenia;
-    private Button button_IniciarSesion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         editText_recogerCorreo = findViewById(R.id.editText_recogerCorreo);
         editText_recogerContrasenia = findViewById(R.id.editText_recogerContrasenia);
-        button_IniciarSesion = findViewById(R.id.button_IniciarSesion);
+        Button button_IniciarSesion = findViewById(R.id.button_IniciarSesion);
 
         button_IniciarSesion.setOnClickListener(v -> {
             String email = editText_recogerCorreo.getText().toString().trim();
@@ -77,11 +79,10 @@ public class MainActivity extends AppCompatActivity {
 
                             runOnUiThread(() -> {
                                 Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                                // Redirigir a MainActivity_Home
                                 Intent intent = new Intent(MainActivity.this, MainActivity_Home.class);
                                 intent.putExtra("idUsuario", idUsuario);
                                 startActivity(intent);
-                                finish(); // Cierra MainActivity para que no se pueda volver atrás
+                                finish();
                             });
                         } else {
                             runOnUiThread(() -> Toast.makeText(MainActivity.this, "Correo o contraseña incorrectos", Toast.LENGTH_SHORT).show());

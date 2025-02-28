@@ -31,7 +31,6 @@ public class ServicioAdapter extends RecyclerView.Adapter<ServicioAdapter.Servic
         holder.text1.setText(servicio.getTitulo());
         holder.text2.setText(servicio.getCategoria() + " - €" + servicio.getPrecio());
 
-        // Hacer clic en el elemento
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(activity, MainActivity_MostrarServicioSeleccionado.class);
             intent.putExtra("idServicio", servicio.getIdServicio());

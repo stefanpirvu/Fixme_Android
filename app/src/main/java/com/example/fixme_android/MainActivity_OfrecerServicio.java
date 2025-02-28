@@ -5,7 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
@@ -19,7 +21,6 @@ public class MainActivity_OfrecerServicio extends AppCompatActivity {
     private EditText editText_recogerCategoriaNuevoServicio;
     private EditText editText_recogerPrecioNuevoServicio;
     private EditText editTextMultiLine_recogerDescripcionNuevoServicio;
-    private Button button_IngresarNuevoServicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +31,12 @@ public class MainActivity_OfrecerServicio extends AppCompatActivity {
         editText_recogerCategoriaNuevoServicio = findViewById(R.id.editText_recogerCategoriaNuevoServicio);
         editText_recogerPrecioNuevoServicio = findViewById(R.id.editText_recogerPrecioNuevoServicio);
         editTextMultiLine_recogerDescripcionNuevoServicio = findViewById(R.id.editTextMultiLine_recogerDescripcionNuevoServicio);
-        button_IngresarNuevoServicio = findViewById(R.id.button_IngresarNuevoServicio);
+        Button button_IngresarNuevoServicio = findViewById(R.id.button_IngresarNuevoServicio);
 
-        // Obtener el idUsuario del Intent
         int idUsuario = getIntent().getIntExtra("idUsuario", -1);
         if (idUsuario == -1) {
             Toast.makeText(this, "Error: No se recibió idUsuario", Toast.LENGTH_SHORT).show();
-            finish(); // Cierra la actividad si no hay idUsuario
+            finish();
             return;
         }
 

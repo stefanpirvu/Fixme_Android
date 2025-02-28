@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity_Home extends AppCompatActivity {
@@ -14,11 +15,9 @@ public class MainActivity_Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
 
-        // Obtener el idUsuario del Intent recibido desde MainActivity
         idUsuario = getIntent().getIntExtra("idUsuario", -1);
         if (idUsuario == -1) {
-            // Si no se recibe idUsuario, algo falló en el login
-            finish(); // Cierra la actividad para evitar problemas
+            finish();
             return;
         }
 
@@ -40,7 +39,7 @@ public class MainActivity_Home extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intentAbrir_MainActivity_PedirServicio_Desde_MainActivity_Home =
                         new Intent(MainActivity_Home.this, MainActivity_PedirServicio.class);
-                intentAbrir_MainActivity_PedirServicio_Desde_MainActivity_Home.putExtra("idUsuario", idUsuario); // Opcional
+                intentAbrir_MainActivity_PedirServicio_Desde_MainActivity_Home.putExtra("idUsuario", idUsuario);
                 startActivity(intentAbrir_MainActivity_PedirServicio_Desde_MainActivity_Home);
             }
         });

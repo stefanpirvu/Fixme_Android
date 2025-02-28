@@ -33,7 +33,6 @@ public class MainActivity_MostrarServicioSeleccionado extends AppCompatActivity 
         TextView textView_mostrarDescripcionServicioSeleccionado = findViewById(R.id.textView_mostrarDescripcionServicioSeleccionado);
         Button button_llamarA_Usuario = findViewById(R.id.button_llamarA_Usuario);
 
-        // Obtener datos del Intent
         Intent intent = getIntent();
         String titulo = intent.getStringExtra("titulo");
         String categoria = intent.getStringExtra("categoria");
@@ -42,13 +41,11 @@ public class MainActivity_MostrarServicioSeleccionado extends AppCompatActivity 
         int idUsuario = intent.getIntExtra("idUsuario", -1);
         Log.d("MostrarServicio", "idUsuario recibido: " + idUsuario);
 
-        // Mostrar datos en los TextView
         textView_mostratTituloServicioSeleccionado.setText(titulo);
         textView_mostrarCategoriaServicioSeleccionado.setText(categoria);
         textView_mostrarPrecioServicioSeleccionado.setText("€" + precio);
         textView_mostrarDescripcionServicioSeleccionado.setText(descripcion);
 
-        // Configurar el botón de llamada
         button_llamarA_Usuario.setOnClickListener(v -> {
             new Thread(() -> {
                 try {

@@ -40,13 +40,11 @@ public class MainActivity_PedirServicio extends AppCompatActivity {
         Button button_buscarPorCategoria = findViewById(R.id.button_buscarPorCategoria);
         RecyclerView recyclerView_pedirServicio = findViewById(R.id.recyclerView_pedirServicio);
 
-        // Configurar RecyclerView
         serviciosList = new ArrayList<>();
         adapter = new ServicioAdapter(serviciosList, this); // Pasar la actividad
         recyclerView_pedirServicio.setLayoutManager(new LinearLayoutManager(this));
         recyclerView_pedirServicio.setAdapter(adapter);
 
-        // Buscar por título
         button_buscarPorTitulo.setOnClickListener(v -> {
             String titulo = editText_recogerBusquedaPorTitulo.getText().toString().trim();
             if (titulo.isEmpty()) {
@@ -56,7 +54,6 @@ public class MainActivity_PedirServicio extends AppCompatActivity {
             buscarServicios(titulo, null);
         });
 
-        // Buscar por categoría
         button_buscarPorCategoria.setOnClickListener(v -> {
             String categoria = editText_recogerBusquedaPorCategoria.getText().toString().trim();
             if (categoria.isEmpty()) {
