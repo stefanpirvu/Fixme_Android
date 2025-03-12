@@ -1,2 +1,2 @@
 # Capturas
-![Primera presentación](primera_presentacion.png)
+![Primera presentación](Presentación_1.png)
